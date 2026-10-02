@@ -1,0 +1,203 @@
+# QUESTÃO 06
+
+print("====== #QUESTÃO 06# ======")
+lista_precos = [25.90, 100.0, -5.0, 49.90, 120.0]
+total = 0
+print(f"\nLista de Preços: {lista_precos}")
+for i in lista_precos:
+    if i < 0:
+        print(i)
+        print("Valor invalido:")
+        continue
+    total += i
+print(f"Total dos valores > '0' da lista: {total:.2f}")
+input("\nPrecione ENTER para continuar...")
+os.system('cls' if os.name == 'nt' else 'clear')
+
+#QUESTÃO 07
+
+print("====== #QUESTÃO 07# ======")
+codigos = ["A10","B20","C30","D40"]
+print(f"CÓDIGOS DISPONÍVEIS NO SISTEMA: {codigos}")
+verificacao = input("DIGITE O CODIGO: ").upper().strip()
+
+if verificacao in codigos:
+    posicao = codigos.index(verificacao)
+    print(f"CÓDIGO ENCONTRADO NA POSIÇÃO: {posicao}")
+else:
+    print("CÓDIGO NÃO ENCONTRADO!!")
+input("\nPrecione ENTER para continuar...")
+os.system('cls' if os.name == 'nt' else 'clear')
+
+#QUESTÃO 08
+#Critérios: 
+#Média final Situação
+#Média ≥ 7,0 Aprovado
+#Média ≥ 5,0 e < 7,0 Recuperação
+#Média < 5,0 Reprovad'''
+print("====== #QUESTÃO 08# ======")
+lista_aluno = []
+lista_aprovado = []
+lista_recuperacao = []
+lista_reprovado = []
+
+while True:
+    print("======== #CADASTRO DE ALUNOS E NOTAS# ========")
+    print("1 - CADASTRO:")
+    print("2 - LISTA DE CADASTRO:")
+    print("3 - LISTA DE APROVADOS:")
+    print("4 - LISTA DE RECUPERAÇÃO:")
+    print("5 - LISTA DE REPROVADOS:")
+    print("6 - CONSULTA:")
+    print("7 - SAIR")
+    opcao = input("DIGITE A OPÇÃO: ")
+    input("\nPrecione ENTER para continuar...")
+    os.system('cls' if os.name == 'nt' else 'clear')
+
+    if opcao == '1':
+        aluno = input("DIGITE O NOME DO ALUNO: ").upper().strip()
+        lista_aluno.append(aluno)
+        lista_nota = []
+        while True:
+            try:
+                qnt_notas = int(input("DIGITE A QUANTIDADE DE NOTAS: "))
+                for i in range(qnt_notas):
+                    #Impedir que ele digite 0 ou números negativos
+                    if qnt_notas < 0:
+                        print("ERRO: A quantidade deve ser maior que zero!\n")
+                        continue
+                    break
+            except ValueError:
+                    print("ERRO: Digite um valor númerico!")
+                    
+            print("\nCALCULANDO...")
+            time.sleep(2)
+            soma = sum(lista_nota)
+            media = soma / qnt_notas
+            if media >= 7:
+                lista_aprovado.append(aluno)
+            elif media >= 5 and media < 7:
+                lista_recuperacao.append(aluno)
+            else:
+                lista_reprovado.append(aluno)
+            print("\n--------> #RESUMODO CADASTRO# <--------")
+            print(f"Quantidade  de notas aceita: {qnt_notas}")
+            print(f"Soma das Notas: {soma}")
+            print(f"Media do Aluno: {aluno} = {media:.2f}")
+            input("\nPrecione ENTER para continuar...")
+            os.system('cls' if os.name == 'nt' else 'clear')
+    elif opcao == '2':
+        print("+++++ #LISTA DE CADASTRADOS# +++++")
+        print(lista_aluno)
+        input("\nPrecione ENTER para continuar...")
+        os.system('cls' if os.name == 'nt' else 'clear')
+    elif opcao == '3':
+        print("+++++ #LISTA DE APROVADOS# +++++")
+        print(lista_aprovado)
+        input("\nPrecione ENTER para continuar...")
+        os.system('cls' if os.name == 'nt' else 'clear')
+    elif opcao == '4':
+            print("+++++ #LISTA DE RECUPERAÇÃO# +++++")
+            print(lista_recuperacao)
+            input("\nPrecione ENTER para continuar...")
+            os.system('cls' if os.name == 'nt' else 'clear')
+    elif opcao == '5':
+                print("+++++ #LISTA DE REPROVADOS# +++++")
+                print(lista_reprovado)
+                input("\nPrecione ENTER para continuar...")
+                os.system('cls' if os.name == 'nt' else 'clear')
+    elif opcao == '6':
+        print("+++++ #CONSULTA DE STATUS# +++++")
+        consulta = input("Digite o nome do aluno: ").upper().strip()
+        if consulta in lista_aprovado:
+            print(f"Status de {consulta}: APROVADO")
+        elif consulta in lista_recuperacao:
+            print(f"Status de {consulta}: EM RECUPERAÇÃO")
+        elif consulta in lista_reprovado:
+            print(f"Status de {consulta}: REPROVADO")
+        else:
+            print(f"Aluno '{consulta}' não encontrado no sistema.")
+        input("\nPressione ENTER para continuar...")
+        os.system('cls' if os.name == 'nt' else 'clear')
+    elif opcao == '7':
+            print("S2 S2 S2 #FINALISANDO O SISTEMA# S2 S2 S2")
+            time.sleep(1)
+            break
+    else:
+         print("OPÇÃO INVALIDA!!!")
+         time.sleep(2)
+         os.system('cls' if os.name == 'nt' else 'clear')
+
+#QUESTÃO 09
+print("====== #QUESTÃO 09# ======")
+lista_convidados = ['Ana','Bruno','Carla','Duda']
+while True:
+    print("\n****LISTA DE CONVIDADOS****")
+    print(lista_convidados)
+    nome = input("DIGITE O NOME A SER REMOVIDO (OU '0' PARA SAIR): ").strip().capitalize()
+    if nome == '0':
+        print("Finalizando...")
+        time.sleep(2)
+        break
+    if nome in lista_convidados:
+        lista_convidados.remove(nome)
+        print(f"LISTA ATUALIZADA: {lista_convidados}")
+    else:
+        print(f"CONVIDADO NÃO ENCONTRADO")
+    if not lista_convidados:
+        print("LISTA VAZIA!!")
+        time.sleep(1)
+        break
+input("\nPrecione ENTER para continuar...")
+os.system('cls' if os.name == 'nt' else 'clear')
+
+#QUESTÃO 10
+print("====== #QUESTÃO 10# ======")
+print("\n===^SISTEMA DE VOTAÇÃO^===")
+candidato = ['Ana','Bruno','Carla']
+voto = []
+
+while True:
+    print("=== #LISTA DE CANDIDATOS# ===")
+    print("1 - Ana")
+    print("2 - Bruno")
+    print("3 - Carla")
+    print("4 - Sair")
+    try:
+        opcao = int(input("DIGITE O NÚMERO DO CANDIDATO OU  '4' PARA FINALIZAR: "))
+    except ValueError:
+        print("ERRO: Digite um número válido!!")
+        time.sleep(1)
+        os.system('cls' if os.name == 'nt' else 'clear')
+        continue
+
+    if opcao < 1 or (opcao > 4 and opcao != 4):
+        print("NÚMERO INVALIDO!!")
+        time.sleep(1)
+        os.system('cls' if os.name == 'nt' else 'clear')
+
+    elif opcao in [1,2,3]:
+        voto.append(opcao)
+        print("VOTO REGISTRADO!!")
+        time.sleep(1)
+        os.system('cls' if os.name == 'nt' else 'clear')
+    elif opcao == 4:
+        print("\nFINALIZANDO...")
+        time.sleep(1)
+        break
+os.system('cls' if os.name == 'nt' else 'clear')
+votos_ana = voto.count(1)
+votos_bruno = voto.count(2)
+votos_carla = voto.count(3)
+print(f"Votos Ana: {votos_ana}")
+print(f"Votos Bruno: {votos_bruno}")
+print(f"Votos Carla: {votos_carla}")
+
+print(">>---------|> APURAÇÃO\n")
+candidato_voto = [votos_ana,votos_bruno,votos_carla]
+if sum(candidato_voto) == 0:
+    print("NÃO HOUVE VOTOS!!")
+else:
+    maior_qnt = max(candidato_voto)
+    indice_venc = candidato_voto.index(maior_qnt)
+    print(f"VENCEDOR(A): {candidato[indice_venc]} com {maior_qnt} VOTOS!!")
